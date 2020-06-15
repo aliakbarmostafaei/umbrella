@@ -16,15 +16,106 @@
  */
 
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+
 buildscript {
-    ext.kotlin_version = "1.3.72"
+    ext {
+        config = [
+                applicationId: "com.aliakbarmostafaei.umbrella",
+                versionMajor: 1,
+                versionMinor: 0,
+                versionPatch: 0
+        ]
+        versions = [
+                // SDK libraries
+                compileSdk      : 29,
+                targetSdk       : 29,
+                minSdk          : 21,
+                sdkBuildTools   : "29.0.3",
+                // essential libraries
+                kotlin          : "1.3.72",
+                // androidx
+                appCompat       : "1.1.0",
+                annotations     : "1.1.0",
+                constraintLayout: "2.0.0-beta7",
+                coreKtx         : "1.3.0",
+                fragmentKtx     : "1.2.5",
+                lifecycle       : "2.2.0",
+                navigation      : "2.3.0-rc01",
+                recyclerView    : "1.1.0",
+                room            : '2.2.5',
+                preferenceKtx   : "1.1.1",
+                // ui libraries
+                material        : "1.1.0",
+                // network libraries
+                retrofit        : "2.9",
+                moshi           : "1.9.3",
+                // reactive libraries
+                rxJava          : "3.0.4",
+                rxKotlin        : "3.0.0",
+                rxAndroid       : "3.0.0",
+                // test libraries
+                espresso        : "3.2.0",
+                junit           : '4.13',
+                junitExt        : "1.1.1"
+        ]
+
+        essentialLibraries = [
+                kotlin: "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}"
+        ]
+
+        androidxLibraries = [
+                annotations             : "androidx.annotation:annotation:${versions.annotations}",
+                appCompat               : "androidx.appcompat:appcompat:${versions.appCompat}",
+                constraintLayout        : "androidx.constraintlayout:constraintlayout:${versions.constraintLayout}",
+                coreKtx                 : "androidx.core:core-ktx:${versions.coreKtx}",
+                fragmentKtx             : "androidx.fragment:fragment-ktx:${versions.fragmentKtx}",
+                viewmodelKtx            : "androidx.lifecycle:lifecycle-viewmodel-ktx:${versions.lifecycle}",
+                livedataKtx             : "androidx.lifecycle:lifecycle-livedata-ktx:${versions.lifecycle}",
+                lifecycle               : "androidx.lifecycle:lifecycle-runtime-ktx:${versions.lifecycle}",
+                viewmodelSavedState     : "androidx.lifecycle:lifecycle-viewmodel-savedstate:${versions.lifecycle}",
+                lifecycleJava8          : "androidx.lifecycle:lifecycle-common-java8:${versions.lifecycle}",
+                navigationFragment      : "androidx.navigation:navigation-fragment-ktx:${versions.navigation}",
+                navigationUi            : "androidx.navigation:navigation-ui-ktx:${versions.navigation}",
+                navigationDynamicModules: "androidx.navigation:navigation-dynamic-features-fragment:${versions.navigation}",
+                recyclerView            : "androidx.recyclerview:recyclerview:${versions.recyclerView}",
+                room                    : "androidx.room:room-runtime:${versions.room}",
+                preferenceKtx           : "androidx.preference:preference-ktx:${versions.preferenceKtx}"
+        ]
+
+        uiLibraries = [
+                material: "com.google.android.material:material:${versions.material}"
+        ]
+
+        networkLibraries = [
+                retrofit: "com.squareup.retrofit2:${versions.retrofit}",
+                moshi   : "com.squareup.moshi:moshi-kotlin:${versions.moshi}"
+        ]
+
+        reactiveLibraries = [
+                rxJava   : "io.reactivex.rxjava3:rxjava:${versions.rxJava}",
+                rxKotlin : "io.reactivex.rxjava3:rxkotlin:${versions.rxKotlin}",
+                rxAndroid: "io.reactivex.rxjava3:rxandroid:${versions.rxAndroid}"
+        ]
+
+        testLibraries = [
+                junit   : "junit:junit:${versions.junit}",
+                junitExt: "androidx.test.ext:junit:${versions.junitExt}",
+                espresso: "androidx.test.espresso:espresso-core:${versions.espresso}"
+
+        ]
+
+        annotationProcessors = [
+                roomProcessor: "androidx.room:room-compiler:${versions.room}"
+        ]
+    }
     repositories {
         google()
         jcenter()
     }
     dependencies {
         classpath "com.android.tools.build:gradle:4.0.0"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:${versions.navigation}"
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
