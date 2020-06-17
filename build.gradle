@@ -107,6 +107,7 @@ buildscript {
         annotationProcessors = [
                 roomProcessor: "androidx.room:room-compiler:${versions.room}"
         ]
+        kotlin_version = '1.3.72'
     }
     repositories {
         google()
