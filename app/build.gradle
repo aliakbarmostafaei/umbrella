@@ -33,11 +33,29 @@ android {
         versionName "${config.versionMajor}.${config.versionMinor}.${config.versionPatch}"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        manifestPlaceholders += [
+                crashlyticsEnabled: false
+        ]
     }
 
     buildTypes {
+        debug {
+            ext.alwaysUpdateBuildId = false
+            debuggable = true
+            applicationIdSuffix = ".dev"
+            versionNameSuffix = "-dev"
+        }
         release {
+            // There's a Dex Splitter issue when enabling DataBinding & proguard in dynamic features
+            // The temporary workaround is to disable shrinking.
+            // This issue is tracked in: https://issuetracker.google.com/120517460
+            // The issue is fixed in Android Studio 4.2 release, enable when stable version released
+            //TODO: Enable shrinking once AS 4.2 available
             minifyEnabled false
+            zipAlignEnabled = true
+            crunchPngs = true
+            debuggable = false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
