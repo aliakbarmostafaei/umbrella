@@ -31,7 +31,7 @@ buildscript {
                 compileSdk      : 29,
                 targetSdk       : 29,
                 minSdk          : 21,
-                sdkBuildTools   : "29.0.3",
+                sdkBuildTools   : "30.0.0",
                 // androidx
                 appCompat       : "1.1.0",
                 annotations     : "1.1.0",
