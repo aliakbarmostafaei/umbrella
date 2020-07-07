@@ -61,14 +61,17 @@ dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
 
     implementation essentialLibraries.kotlin
+    implementation essentialLibraries.dagger
+    implementation androidxLibraries.annotations
     implementation androidxLibraries.coreKtx
     implementation androidxLibraries.room
-    kapt annotationProcessors.roomProcessor
     implementation networkLibraries.retrofit
     implementation networkLibraries.moshi
     implementation reactiveLibraries.rxJava
     implementation reactiveLibraries.rxKotlin
     implementation reactiveLibraries.rxAndroid
+    kapt annotationProcessors.daggerProcessor
+    kapt annotationProcessors.roomProcessor
 
     testImplementation testLibraries.junit
     androidTestImplementation testLibraries.junitExt

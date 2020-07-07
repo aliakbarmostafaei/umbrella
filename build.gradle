@@ -22,9 +22,9 @@ buildscript {
         kotlin_version = '1.3.72'
         config = [
                 applicationId: "com.aliakbarmostafaei.umbrella",
-                versionMajor: 1,
-                versionMinor: 0,
-                versionPatch: 0
+                versionMajor : 1,
+                versionMinor : 0,
+                versionPatch : 0
         ]
         versions = [
                 // SDK libraries
@@ -32,6 +32,8 @@ buildscript {
                 targetSdk       : 29,
                 minSdk          : 21,
                 sdkBuildTools   : "30.0.0",
+                // dependency injection
+                dagger          : "2.28.1",
                 // androidx
                 appCompat       : "1.1.0",
                 annotations     : "1.1.0",
@@ -59,7 +61,8 @@ buildscript {
         ]
 
         essentialLibraries = [
-                kotlin: "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+                kotlin: "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version",
+                dagger: "com.google.dagger:dagger-android:${versions.dagger}"
         ]
 
         androidxLibraries = [
@@ -104,7 +107,8 @@ buildscript {
         ]
 
         annotationProcessors = [
-                roomProcessor: "androidx.room:room-compiler:${versions.room}"
+                daggerProcessor: "com.google.dagger:dagger-android-processor:${versions.dagger}",
+                roomProcessor  : "androidx.room:room-compiler:${versions.room}"
         ]
     }
     repositories {
