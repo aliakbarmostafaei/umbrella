@@ -15,7 +15,7 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.aliakbarmostafaei.umbrella.core.remote
+package com.aliakbarmostafaei.umbrella.core.di.component
 
-abstract class CurrentWeatherDto {
+interface CoreComponent {
 }

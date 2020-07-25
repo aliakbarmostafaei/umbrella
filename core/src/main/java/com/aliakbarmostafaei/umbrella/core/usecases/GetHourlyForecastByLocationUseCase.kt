@@ -15,22 +15,22 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.aliakbarmostafaei.umbrella.domain.usecases
+package com.aliakbarmostafaei.umbrella.core.usecases
 
-import com.aliakbarmostafaei.umbrella.domain.repositories.WeatherRepository
+import com.aliakbarmostafaei.umbrella.core.repositories.WeatherRepository
 
 /**
- * Business application rule (usecase) for getting the daily weather forecast data
+ * Business application rule (usecase) for getting the hourly weather forecast data
  * for a given location ID
  * @param repository an instance of WeatherRepository to get the data
  */
-class GetDailyForecastByLocationUseCase(private val repository: WeatherRepository) {
+class GetHourlyForecastByLocationUseCase(private val repository: WeatherRepository) {
 
     /**
-     * Method to get the daily weather forecast data from the repository
+     * Method to get the hourly weather forecast data from the repository
      * @param locationId the location's id retrieved previously from the remote API
      * @param isImperial request data in imperial unit format (default false)
      */
-    operator fun invoke(locationId: String, isImperial: Boolean = false) =
-        repository.getDailyForecastByLocation(locationId, isImperial)
+    operator fun invoke(locationId: String, isImperial: Boolean) =
+        repository.getHourlyForecastByLocation(locationId, isImperial)
 }

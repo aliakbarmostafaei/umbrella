@@ -15,23 +15,7 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.aliakbarmostafaei.umbrella.domain.models
+package com.aliakbarmostafaei.umbrella.core.models
 
-import com.aliakbarmostafaei.umbrella.domain.base.WeatherCondition
-import com.aliakbarmostafaei.umbrella.domain.base.WindDirection
-
-/**
- * Business model representing hourly weather forecast condition
- */
-data class HourlyForecast(
-    val epochTime: Long,
-    val temperature: Double,
-    val feelsLike: Double,
-    val weatherCondition: WeatherCondition,
-    val weatherDescription: String,
-    val cloudCover: Int,
-    val windSpeed: Double,
-    val windDirection: WindDirection,
-    val uvIndex: Double,
-    val precipitation: Int
-)
+abstract class CurrentWeatherDto {
+}

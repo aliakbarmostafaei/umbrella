@@ -15,12 +15,12 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.aliakbarmostafaei.umbrella.domain.repositories
+package com.aliakbarmostafaei.umbrella.core.repositories
 
-import com.aliakbarmostafaei.umbrella.domain.base.Result
-import com.aliakbarmostafaei.umbrella.domain.models.CurrentWeather
-import com.aliakbarmostafaei.umbrella.domain.models.DailyForecast
-import com.aliakbarmostafaei.umbrella.domain.models.HourlyForecast
+import com.aliakbarmostafaei.umbrella.core.base.Result
+import com.aliakbarmostafaei.umbrella.core.models.CurrentWeather
+import com.aliakbarmostafaei.umbrella.core.models.DailyForecast
+import com.aliakbarmostafaei.umbrella.core.models.HourlyForecast
 
 /**
  * Repository interface declared in domain layer for IoC purposes

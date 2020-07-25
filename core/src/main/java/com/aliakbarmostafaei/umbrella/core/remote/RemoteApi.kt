@@ -17,6 +17,9 @@
 
 package com.aliakbarmostafaei.umbrella.core.remote
 
+import com.aliakbarmostafaei.umbrella.core.models.CurrentWeatherDto
+import com.aliakbarmostafaei.umbrella.core.models.DailyForecastDto
+import com.aliakbarmostafaei.umbrella.core.models.HourlyForecastDto
 import io.reactivex.rxjava3.core.Single
 
 interface RemoteApi {

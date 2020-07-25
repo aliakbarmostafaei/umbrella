@@ -15,23 +15,13 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.aliakbarmostafaei.umbrella.domain.models
-
-import com.aliakbarmostafaei.umbrella.domain.base.WeatherCondition
-import com.aliakbarmostafaei.umbrella.domain.base.WindDirection
+package com.aliakbarmostafaei.umbrella.core.di.base
 
 /**
- * Business model representing daily weather forecast condition
+ * Base dagger component to provide injection method template in activity components.
+ * @param T target type
  */
-data class DailyForecast(
-    val epochDate: Long,
-    val minTemp: Double,
-    val maxTemp: Double,
-    val weatherCondition: WeatherCondition,
-    val weatherDescription: String,
-    val cloudCover: Int,
-    val windSpeed: Double,
-    val windDirection: WindDirection,
-    val uvIndex: Double,
-    val precipitation: Int
-)
+interface BaseComponent<T> {
+
+    fun inject(target: T)
+}

@@ -15,7 +15,28 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.aliakbarmostafaei.umbrella.core.remote
+package com.aliakbarmostafaei.umbrella.core.models
 
-abstract class DailyForecastDto {
-}
+import com.aliakbarmostafaei.umbrella.domain.base.WeatherCondition
+import com.aliakbarmostafaei.umbrella.domain.base.WindDirection
+
+/**
+ * Business model representing current weather condition
+ */
+data class CurrentWeather(
+    val locationId: Int,
+    val locationName: String,
+    val weatherCondition: WeatherCondition,
+    val weatherDescription: String,
+    val temperature: Double,
+    val feelsLike: Double,
+    val humidity: Double,
+    val precipitation: Int,
+    val dewPoint: Double,
+    val pressure: Double,
+    val windSpeed: Double,
+    val windDirection: WindDirection,
+    val cloudCover: Int,
+    val visibility: Double,
+    val uvIndex: Double
+    )

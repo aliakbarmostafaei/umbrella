@@ -15,7 +15,24 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.aliakbarmostafaei.umbrella.core.remote
+package com.aliakbarmostafaei.umbrella.core.di.component
 
-class HourlyForecastDto {
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
+import dagger.Module
+import dagger.Provides
+import javax.inject.Singleton
+
+/**
+ * Dagger module to provide core data functionality.
+ */
+@Module
+class CoreDataModule {
+
+    @Provides
+    @Singleton
+    fun provideMoshi(): Moshi {
+        return Moshi.Builder()
+            .add(KotlinJsonAdapterFactory)
+    }
 }

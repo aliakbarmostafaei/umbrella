@@ -15,7 +15,7 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.aliakbarmostafaei.umbrella.domain.base
+package com.aliakbarmostafaei.umbrella.core.base
 
 /**
  * Responsible for representing different weather conditions since each API has different weather

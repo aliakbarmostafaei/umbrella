@@ -15,9 +15,9 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.aliakbarmostafaei.umbrella.domain.usecases
+package com.aliakbarmostafaei.umbrella.core.usecases
 
-import com.aliakbarmostafaei.umbrella.domain.repositories.WeatherRepository
+import com.aliakbarmostafaei.umbrella.core.repositories.WeatherRepository
 
 /**
  * Business application rule (usecase) for getting the daily weather forecast data
