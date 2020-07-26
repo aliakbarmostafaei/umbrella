@@ -48,6 +48,7 @@ buildscript {
                 // ui libraries
                 material        : "1.1.0",
                 // network libraries
+                okhttp          : "4.8.0",
                 retrofit        : "2.9.0",
                 moshi           : "1.9.3",
                 // reactive libraries
@@ -89,6 +90,8 @@ buildscript {
         ]
 
         networkLibraries = [
+                okhttp      : "com.squareup.okhttp3:okhttp:${versions.okhttp}",
+                okhttpLogger: "com.squareup.okhttp3:logging-interceptor:${versions.okhttp}",
                 retrofit    : "com.squareup.retrofit2:retrofit:${versions.retrofit}",
                 moshi       : "com.squareup.moshi:moshi-kotlin:${versions.moshi}",
                 moshiCodegen: "com.squareup.moshi:moshi-kotlin-codegen:${versions.moshi}"
@@ -101,9 +104,9 @@ buildscript {
         ]
 
         testLibraries = [
-                junit   : "junit:junit:${versions.junit}",
-                junitExt: "androidx.test.ext:junit:${versions.junitExt}",
-                espresso: "androidx.test.espresso:espresso-core:${versions.espresso}",
+                junit      : "junit:junit:${versions.junit}",
+                junitExt   : "androidx.test.ext:junit:${versions.junitExt}",
+                espresso   : "androidx.test.espresso:espresso-core:${versions.espresso}",
                 annotations: "androidx.annotation:annotation:${versions.annotations}"
 
         ]

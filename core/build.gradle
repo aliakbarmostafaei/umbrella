@@ -64,6 +64,8 @@ dependencies {
     implementation androidxLibraries.annotations
     implementation androidxLibraries.coreKtx
     implementation androidxLibraries.room
+    implementation networkLibraries.okhttp
+    implementation networkLibraries.okhttpLogger
     implementation networkLibraries.retrofit
     implementation networkLibraries.moshi
     implementation reactiveLibraries.rxJava
