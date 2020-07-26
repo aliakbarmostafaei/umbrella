@@ -17,5 +17,27 @@
 
 package com.aliakbarmostafaei.umbrella.core.di.component
 
+import com.squareup.moshi.Moshi
+import dagger.Component
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.converter.moshi.MoshiConverterFactory
+
+/**
+ * Component providing application wide singletons.
+ * To call this make use of UmbrellaApplication.coreComponent or the
+ * Activity.coreComponent extension function.
+ */
+@Component(modules = [CoreDataModule::class])
 interface CoreComponent {
+
+    @Component.Factory
+    interface Factory {
+        fun create(): CoreComponent
+    }
+
+    fun provideOkHttpClient(): OkHttpClient
+    fun provideLoggingInterceptor(): HttpLoggingInterceptor
+    fun provideMoshi(): Moshi
+    fun provideMoshiConverter(): MoshiConverterFactory
 }
