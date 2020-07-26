@@ -15,15 +15,18 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.aliakbarmostafaei.umbrella.core.di.component
+package com.aliakbarmostafaei.umbrella.core.di.module
 
 import com.aliakbarmostafaei.umbrella.core.BuildConfig
+import com.aliakbarmostafaei.umbrella.core.di.scope.AppScope
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
 import dagger.Provides
+import io.reactivex.rxjava3.schedulers.Schedulers
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
 import javax.inject.Singleton
 
@@ -34,12 +37,7 @@ import javax.inject.Singleton
 class CoreDataModule {
 
     @Provides
-    @Singleton
-    fun provideOkHttpClient(interceptor: HttpLoggingInterceptor): OkHttpClient =
-        OkHttpClient.Builder().addInterceptor(interceptor).build()
-
-    @Provides
-    @Singleton
+    @AppScope
     fun provideLoggingInterceptor(): HttpLoggingInterceptor =
         HttpLoggingInterceptor().apply {
             level = if (BuildConfig.DEBUG) {
@@ -50,7 +48,12 @@ class CoreDataModule {
         }
 
     @Provides
-    @Singleton
+    @AppScope
+    fun provideOkHttpClient(interceptor: HttpLoggingInterceptor): OkHttpClient =
+        OkHttpClient.Builder().addInterceptor(interceptor).build()
+
+    @Provides
+    @AppScope
     fun provideMoshi(): Moshi {
         return Moshi.Builder()
             .add(KotlinJsonAdapterFactory())
@@ -58,8 +61,14 @@ class CoreDataModule {
     }
 
     @Provides
-    @Singleton
+    @AppScope
     fun provideMoshiConverter(moshi: Moshi): MoshiConverterFactory {
         return MoshiConverterFactory.create(moshi)
+    }
+
+    @Provides
+    @AppScope
+    fun provideRxJava3Adapter(): RxJava3CallAdapterFactory {
+        return RxJava3CallAdapterFactory.createWithScheduler(Schedulers.io())
     }
 }

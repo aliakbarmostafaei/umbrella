@@ -68,7 +68,8 @@ dependencies {
     implementation networkLibraries.okhttpLogger
     implementation networkLibraries.retrofit
     implementation networkLibraries.moshi
-    implementation networkLibraries.moshiConverter
+    implementation networkLibraries.retrofitMoshiConverter
+    implementation networkLibraries.retrofitRxJava3Adapter
     implementation reactiveLibraries.rxJava
     implementation reactiveLibraries.rxKotlin
     implementation reactiveLibraries.rxAndroid

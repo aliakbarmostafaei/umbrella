@@ -90,12 +90,13 @@ buildscript {
         ]
 
         networkLibraries = [
-                okhttp      : "com.squareup.okhttp3:okhttp:${versions.okhttp}",
-                okhttpLogger: "com.squareup.okhttp3:logging-interceptor:${versions.okhttp}",
-                retrofit    : "com.squareup.retrofit2:retrofit:${versions.retrofit}",
-                moshi       : "com.squareup.moshi:moshi-kotlin:${versions.moshi}",
-                moshiCodegen: "com.squareup.moshi:moshi-kotlin-codegen:${versions.moshi}",
-                moshiConverter: "com.squareup.retrofit2:converter-moshi:${versions.retrofit}"
+                okhttp                : "com.squareup.okhttp3:okhttp:${versions.okhttp}",
+                okhttpLogger          : "com.squareup.okhttp3:logging-interceptor:${versions.okhttp}",
+                retrofit              : "com.squareup.retrofit2:retrofit:${versions.retrofit}",
+                retrofitMoshiConverter: "com.squareup.retrofit2:converter-moshi:${versions.retrofit}",
+                retrofitRxJava3Adapter: "com.squareup.retrofit2:adapter-rxjava3:${versions.retrofit}",
+                moshi                 : "com.squareup.moshi:moshi-kotlin:${versions.moshi}",
+                moshiCodegen          : "com.squareup.moshi:moshi-kotlin-codegen:${versions.moshi}"
         ]
 
         reactiveLibraries = [

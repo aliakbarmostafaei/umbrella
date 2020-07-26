@@ -17,6 +17,7 @@
 
 package com.aliakbarmostafaei.umbrella.core.di.component
 
+import com.aliakbarmostafaei.umbrella.core.di.module.CoreDataModule
 import com.squareup.moshi.Moshi
 import dagger.Component
 import okhttp3.OkHttpClient
