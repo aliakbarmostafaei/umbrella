@@ -94,7 +94,8 @@ buildscript {
                 okhttpLogger: "com.squareup.okhttp3:logging-interceptor:${versions.okhttp}",
                 retrofit    : "com.squareup.retrofit2:retrofit:${versions.retrofit}",
                 moshi       : "com.squareup.moshi:moshi-kotlin:${versions.moshi}",
-                moshiCodegen: "com.squareup.moshi:moshi-kotlin-codegen:${versions.moshi}"
+                moshiCodegen: "com.squareup.moshi:moshi-kotlin-codegen:${versions.moshi}",
+                moshiConverter: "com.squareup.retrofit2:converter-moshi:${versions.retrofit}"
         ]
 
         reactiveLibraries = [
