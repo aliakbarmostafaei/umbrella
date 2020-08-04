@@ -17,5 +17,21 @@
 
 package com.aliakbarmostafaei.umbrella.core.local
 
-class UmbrellaDatabase {
+import androidx.room.Database
+import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
+import com.aliakbarmostafaei.umbrella.core.models.CurrentWeather
+import com.aliakbarmostafaei.umbrella.core.models.DailyForecast
+import com.aliakbarmostafaei.umbrella.core.models.HourlyForecast
+
+@Database(entities = [CurrentWeather::class, HourlyForecast::class, DailyForecast::class], version = 1)
+@TypeConverters(Converters::class)
+abstract class UmbrellaDatabase: RoomDatabase() {
+
+    abstract fun currentWeatherDao(): WeatherDao
+    //TODO: Add the remaining daos
+
+    companion object {
+        const val NAME = "UmbrellaDatabase.db"
+    }
 }
