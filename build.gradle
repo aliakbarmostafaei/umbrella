@@ -63,7 +63,7 @@ buildscript {
 
         essentialLibraries = [
                 kotlin: "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version",
-                dagger: "com.google.dagger:dagger-android:${versions.dagger}"
+                dagger: "com.google.dagger:dagger:${versions.dagger}"
         ]
 
         androidxLibraries = [
@@ -114,7 +114,7 @@ buildscript {
         ]
 
         annotationProcessors = [
-                daggerProcessor: "com.google.dagger:dagger-android-processor:${versions.dagger}",
+                daggerProcessor: "com.google.dagger:dagger-compiler:${versions.dagger}",
                 roomProcessor  : "androidx.room:room-compiler:${versions.room}"
         ]
     }
