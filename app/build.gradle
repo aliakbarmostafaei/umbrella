@@ -18,9 +18,8 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-apply plugin: "androidx.navigation.safeargs.kotlin"
 apply plugin: 'kotlin-kapt'
-
+apply plugin: "androidx.navigation.safeargs.kotlin"
 
 android {
     compileSdkVersion versions.compileSdk
@@ -73,12 +72,13 @@ android {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
 
-    implementation essentialLibraries.kotlin
-    implementation essentialLibraries.dagger
+    implementation project(":core")
+
+    kapt annotationProcessors.daggerProcessor
     implementation androidxLibraries.coreKtx
     implementation androidxLibraries.appCompat
     implementation androidxLibraries.constraintLayout
-    kapt annotationProcessors.daggerProcessor
+
 
     testImplementation testLibraries.junit
     androidTestImplementation testLibraries.junitExt
