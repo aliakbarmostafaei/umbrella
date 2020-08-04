@@ -37,5 +37,6 @@ sealed class WeatherCondition {
     object Tornado: WeatherCondition()
     object Ash: WeatherCondition()
     object Squall: WeatherCondition()
+    object Unknown: WeatherCondition()
 
 }

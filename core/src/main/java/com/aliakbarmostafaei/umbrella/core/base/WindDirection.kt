@@ -36,4 +36,5 @@ sealed class WindDirection {
     object WNW : WindDirection()    // 281.25 - 303.75
     object NW : WindDirection()     // 303.75 - 326.25
     object NNW : WindDirection()    // 326.25 - 348.75
+    object Unknown : WindDirection()    // 326.25 - 348.75
 }
