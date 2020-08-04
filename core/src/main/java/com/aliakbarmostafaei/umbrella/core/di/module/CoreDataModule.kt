@@ -17,8 +17,14 @@
 
 package com.aliakbarmostafaei.umbrella.core.di.module
 
+import android.app.Application
+import android.content.Context
+import androidx.room.Room
+import androidx.room.RoomDatabase
 import com.aliakbarmostafaei.umbrella.core.BuildConfig
 import com.aliakbarmostafaei.umbrella.core.di.scope.AppScope
+import com.aliakbarmostafaei.umbrella.core.local.UmbrellaDatabase
+import com.aliakbarmostafaei.umbrella.core.local.WeatherDao
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
@@ -35,6 +41,21 @@ import javax.inject.Singleton
  */
 @Module
 class CoreDataModule {
+
+    @Provides
+    @AppScope
+    fun provideDatabase(context: Context): UmbrellaDatabase {
+        return Room.databaseBuilder(context.applicationContext,
+        UmbrellaDatabase::class.java, UmbrellaDatabase.NAME)
+            .fallbackToDestructiveMigration()
+            .build()
+    }
+
+    @Provides
+    @AppScope
+    fun provideWeatherDao(database: UmbrellaDatabase): WeatherDao {
+        return database.currentWeatherDao()
+    }
 
     @Provides
     @AppScope
