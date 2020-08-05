@@ -21,7 +21,9 @@ import android.content.Context
 import com.aliakbarmostafaei.umbrella.core.di.module.CoreDataModule
 import com.aliakbarmostafaei.umbrella.core.di.scope.AppScope
 import com.aliakbarmostafaei.umbrella.core.local.UmbrellaDatabase
-import com.aliakbarmostafaei.umbrella.core.local.WeatherDao
+import com.aliakbarmostafaei.umbrella.core.local.daos.CurrentWeatherDao
+import com.aliakbarmostafaei.umbrella.core.local.daos.DailyForecastDao
+import com.aliakbarmostafaei.umbrella.core.local.daos.HourlyForecastDao
 import com.squareup.moshi.Moshi
 import dagger.BindsInstance
 import dagger.Component
@@ -45,7 +47,9 @@ interface CoreComponent {
     }
 
     fun provideDatabase(): UmbrellaDatabase
-    fun provideWeatherDao(): WeatherDao
+    fun provideCurrentWeatherDao(): CurrentWeatherDao
+    fun provideHourlyForecastDao(): HourlyForecastDao
+    fun provideDailyForecastDao(): DailyForecastDao
     fun provideOkHttpClient(): OkHttpClient
     fun provideLoggingInterceptor(): HttpLoggingInterceptor
     fun provideMoshi(): Moshi

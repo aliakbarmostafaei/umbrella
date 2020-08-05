@@ -20,16 +20,23 @@ package com.aliakbarmostafaei.umbrella.core.local
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.aliakbarmostafaei.umbrella.core.models.CurrentWeather
-import com.aliakbarmostafaei.umbrella.core.models.DailyForecast
-import com.aliakbarmostafaei.umbrella.core.models.HourlyForecast
+import com.aliakbarmostafaei.umbrella.core.local.daos.CurrentWeatherDao
+import com.aliakbarmostafaei.umbrella.core.local.daos.DailyForecastDao
+import com.aliakbarmostafaei.umbrella.core.local.daos.HourlyForecastDao
+import com.aliakbarmostafaei.umbrella.core.local.models.CurrentWeatherEntity
+import com.aliakbarmostafaei.umbrella.core.local.models.DailyForecastEntity
+import com.aliakbarmostafaei.umbrella.core.local.models.HourlyForecastEntity
 
-@Database(entities = [CurrentWeather::class, HourlyForecast::class, DailyForecast::class], version = 1)
+@Database(
+    entities = [CurrentWeatherEntity::class,
+        HourlyForecastEntity::class, DailyForecastEntity::class], version = 1
+)
 @TypeConverters(Converters::class)
-abstract class UmbrellaDatabase: RoomDatabase() {
+abstract class UmbrellaDatabase : RoomDatabase() {
 
-    abstract fun currentWeatherDao(): WeatherDao
-    //TODO: Add the remaining daos
+    abstract fun currentWeatherDao(): CurrentWeatherDao
+    abstract fun hourlyForecastDao(): HourlyForecastDao
+    abstract fun dailyForecastDao(): DailyForecastDao
 
     companion object {
         const val NAME = "UmbrellaDatabase.db"

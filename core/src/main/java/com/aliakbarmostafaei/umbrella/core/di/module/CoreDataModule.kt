@@ -17,14 +17,14 @@
 
 package com.aliakbarmostafaei.umbrella.core.di.module
 
-import android.app.Application
 import android.content.Context
 import androidx.room.Room
-import androidx.room.RoomDatabase
 import com.aliakbarmostafaei.umbrella.core.BuildConfig
 import com.aliakbarmostafaei.umbrella.core.di.scope.AppScope
 import com.aliakbarmostafaei.umbrella.core.local.UmbrellaDatabase
-import com.aliakbarmostafaei.umbrella.core.local.WeatherDao
+import com.aliakbarmostafaei.umbrella.core.local.daos.CurrentWeatherDao
+import com.aliakbarmostafaei.umbrella.core.local.daos.DailyForecastDao
+import com.aliakbarmostafaei.umbrella.core.local.daos.HourlyForecastDao
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
@@ -34,7 +34,6 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
-import javax.inject.Singleton
 
 /**
  * Dagger module to provide core data functionality.
@@ -46,15 +45,28 @@ class CoreDataModule {
     @AppScope
     fun provideDatabase(context: Context): UmbrellaDatabase {
         return Room.databaseBuilder(context.applicationContext,
-        UmbrellaDatabase::class.java, UmbrellaDatabase.NAME)
+            UmbrellaDatabase::class.java, UmbrellaDatabase.NAME
+        )
             .fallbackToDestructiveMigration()
             .build()
     }
 
     @Provides
     @AppScope
-    fun provideWeatherDao(database: UmbrellaDatabase): WeatherDao {
+    fun provideCurrentWeatherDao(database: UmbrellaDatabase): CurrentWeatherDao {
         return database.currentWeatherDao()
+    }
+
+    @Provides
+    @AppScope
+    fun provideHourlyForecastDao(database: UmbrellaDatabase): HourlyForecastDao {
+        return database.hourlyForecastDao()
+    }
+
+    @Provides
+    @AppScope
+    fun provideDailyForecastDao(database: UmbrellaDatabase): DailyForecastDao {
+        return database.dailyForecastDao()
     }
 
     @Provides
