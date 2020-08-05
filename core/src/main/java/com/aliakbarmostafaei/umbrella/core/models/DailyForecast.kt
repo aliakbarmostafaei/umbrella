@@ -17,13 +17,16 @@
 
 package com.aliakbarmostafaei.umbrella.core.models
 
-import com.aliakbarmostafaei.umbrella.domain.base.WeatherCondition
-import com.aliakbarmostafaei.umbrella.domain.base.WindDirection
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import com.aliakbarmostafaei.umbrella.core.base.WeatherCondition
+import com.aliakbarmostafaei.umbrella.core.base.WindDirection
 
 /**
  * Business model representing daily weather forecast condition
  */
 data class DailyForecast(
+    val locationName: String,
     val epochDate: Long,
     val minTemp: Double,
     val maxTemp: Double,

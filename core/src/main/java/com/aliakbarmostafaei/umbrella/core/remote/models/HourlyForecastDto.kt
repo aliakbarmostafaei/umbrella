@@ -15,7 +15,7 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.aliakbarmostafaei.umbrella.core.models
+package com.aliakbarmostafaei.umbrella.core.remote.models
 
-abstract class DailyForecastDto {
+class HourlyForecastDto {
 }

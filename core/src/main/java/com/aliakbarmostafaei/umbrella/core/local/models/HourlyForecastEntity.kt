@@ -15,17 +15,21 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.aliakbarmostafaei.umbrella.core.models
+package com.aliakbarmostafaei.umbrella.core.local.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.aliakbarmostafaei.umbrella.core.base.WeatherCondition
 import com.aliakbarmostafaei.umbrella.core.base.WindDirection
 
-/**
- * Business model representing hourly weather forecast condition
+/*
+Entity model representing hourly weather forecast data for local storage
  */
-data class HourlyForecast(
+@Entity(tableName = "hourly_forecast_table")
+data class HourlyForecastEntity(
+    @PrimaryKey(autoGenerate = true)
+    val uid: Long,
+    val locationId: Long,
     val locationName: String,
     val epochTime: Long,
     val temperature: Double,

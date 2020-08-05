@@ -17,14 +17,13 @@
 
 package com.aliakbarmostafaei.umbrella.core.models
 
-import com.aliakbarmostafaei.umbrella.domain.base.WeatherCondition
-import com.aliakbarmostafaei.umbrella.domain.base.WindDirection
+import com.aliakbarmostafaei.umbrella.core.base.WeatherCondition
+import com.aliakbarmostafaei.umbrella.core.base.WindDirection
 
 /**
  * Business model representing current weather condition
  */
 data class CurrentWeather(
-    val locationId: Int,
     val locationName: String,
     val weatherCondition: WeatherCondition,
     val weatherDescription: String,
@@ -39,4 +38,4 @@ data class CurrentWeather(
     val cloudCover: Int,
     val visibility: Double,
     val uvIndex: Double
-    )
+)
