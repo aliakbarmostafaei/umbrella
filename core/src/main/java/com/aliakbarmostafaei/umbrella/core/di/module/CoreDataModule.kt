@@ -25,15 +25,12 @@ import com.aliakbarmostafaei.umbrella.core.local.UmbrellaDatabase
 import com.aliakbarmostafaei.umbrella.core.local.daos.CurrentWeatherDao
 import com.aliakbarmostafaei.umbrella.core.local.daos.DailyForecastDao
 import com.aliakbarmostafaei.umbrella.core.local.daos.HourlyForecastDao
-import com.squareup.moshi.Moshi
-import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
 import dagger.Provides
 import io.reactivex.rxjava3.schedulers.Schedulers
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
-import retrofit2.converter.moshi.MoshiConverterFactory
 
 /**
  * Dagger module to provide core data functionality.
@@ -84,20 +81,6 @@ class CoreDataModule {
     @AppScope
     fun provideOkHttpClient(interceptor: HttpLoggingInterceptor): OkHttpClient =
         OkHttpClient.Builder().addInterceptor(interceptor).build()
-
-    @Provides
-    @AppScope
-    fun provideMoshi(): Moshi {
-        return Moshi.Builder()
-            .add(KotlinJsonAdapterFactory())
-            .build()
-    }
-
-    @Provides
-    @AppScope
-    fun provideMoshiConverter(moshi: Moshi): MoshiConverterFactory {
-        return MoshiConverterFactory.create(moshi)
-    }
 
     @Provides
     @AppScope

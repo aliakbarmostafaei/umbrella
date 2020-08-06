@@ -24,13 +24,11 @@ import com.aliakbarmostafaei.umbrella.core.local.UmbrellaDatabase
 import com.aliakbarmostafaei.umbrella.core.local.daos.CurrentWeatherDao
 import com.aliakbarmostafaei.umbrella.core.local.daos.DailyForecastDao
 import com.aliakbarmostafaei.umbrella.core.local.daos.HourlyForecastDao
-import com.squareup.moshi.Moshi
 import dagger.BindsInstance
 import dagger.Component
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
-import retrofit2.converter.moshi.MoshiConverterFactory
 
 /**
  * Component providing application wide singletons.
@@ -52,7 +50,5 @@ interface CoreComponent {
     fun provideDailyForecastDao(): DailyForecastDao
     fun provideOkHttpClient(): OkHttpClient
     fun provideLoggingInterceptor(): HttpLoggingInterceptor
-    fun provideMoshi(): Moshi
-    fun provideMoshiConverter(): MoshiConverterFactory
     fun provideRxJava3Adapter(): RxJava3CallAdapterFactory
 }
