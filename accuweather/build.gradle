@@ -18,6 +18,8 @@
 apply plugin: "com.android.dynamic-feature"
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: "androidx.navigation.safeargs.kotlin"
 
 android {
     compileSdkVersion versions.compileSdk
@@ -57,15 +59,23 @@ android {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
 
+    implementation project(":core")
     implementation project(":app")
 
-    implementation essentialLibraries.kotlin
-    implementation essentialLibraries.dagger
+    kapt annotationProcessors.daggerProcessor
     implementation androidxLibraries.annotations
     implementation androidxLibraries.coreKtx
+    implementation androidxLibraries.appCompat
+    implementation androidxLibraries.constraintLayout
     implementation reactiveLibraries.rxJava
     implementation reactiveLibraries.rxKotlin
     implementation reactiveLibraries.rxAndroid
+    implementation networkLibraries.okhttp
+    implementation networkLibraries.okhttpLogger
+    implementation networkLibraries.retrofit
+    implementation networkLibraries.moshi
+    implementation networkLibraries.retrofitMoshiConverter
+    implementation networkLibraries.retrofitRxJava3Adapter
 
     testImplementation testLibraries.junit
     androidTestImplementation testLibraries.junitExt
