@@ -15,7 +15,8 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.aliakbarmostafaei.umbrella.core.local
+package com.aliakbarmostafaei.umbrella
 
-interface WeatherDao {
-}
+import android.app.Activity
+
+fun Activity.coreComponent() = UmbrellaApplication.coreComponent(this)
