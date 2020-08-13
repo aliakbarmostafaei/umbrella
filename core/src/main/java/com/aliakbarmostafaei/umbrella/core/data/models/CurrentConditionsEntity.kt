@@ -19,7 +19,6 @@ package com.aliakbarmostafaei.umbrella.core.data.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.aliakbarmostafaei.umbrella.core.data.base.WindDirection
 
 /*
 Entity model representing current weather data for local storage
@@ -33,13 +32,13 @@ data class CurrentConditionsEntity(
     val weatherCondition: String,
     val temperature: Double,
     val feelsLike: Double,
-    val humidity: Double,
+    val humidity: Int,
     val precipitation: Int,
     val dewPoint: Double,
     val pressure: Double,
     val windSpeed: Double,
-    val windDirection: WindDirection,
+    val windDirection: String,
     val cloudCover: Int,
     val visibility: Double,
-    val uvIndex: Double
+    val uvIndex: Int
 )

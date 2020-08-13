@@ -19,7 +19,6 @@ package com.aliakbarmostafaei.umbrella.core.data
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import androidx.room.TypeConverters
 import com.aliakbarmostafaei.umbrella.core.data.daos.CurrentWeatherDao
 import com.aliakbarmostafaei.umbrella.core.data.daos.DailyForecastDao
 import com.aliakbarmostafaei.umbrella.core.data.daos.HourlyForecastDao
@@ -31,7 +30,6 @@ import com.aliakbarmostafaei.umbrella.core.data.models.HourlyForecastEntity
     entities = [CurrentConditionsEntity::class,
         HourlyForecastEntity::class, DailyForecastEntity::class], version = 1
 )
-@TypeConverters(Converters::class)
 abstract class UmbrellaDatabase : RoomDatabase() {
 
     abstract fun currentWeatherDao(): CurrentWeatherDao

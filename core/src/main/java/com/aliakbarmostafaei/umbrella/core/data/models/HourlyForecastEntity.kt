@@ -19,7 +19,6 @@ package com.aliakbarmostafaei.umbrella.core.data.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.aliakbarmostafaei.umbrella.core.data.base.WindDirection
 
 /*
 Entity model representing hourly weather forecast data for local storage
@@ -35,7 +34,7 @@ data class HourlyForecastEntity(
     val feelsLike: Double,
     val cloudCover: Int,
     val windSpeed: Double,
-    val windDirection: WindDirection,
+    val windDirection: String,
     val uvIndex: Double,
     val precipitation: Int
 )
