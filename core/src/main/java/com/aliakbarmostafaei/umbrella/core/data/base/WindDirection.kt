@@ -15,7 +15,7 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.aliakbarmostafaei.umbrella.core.base
+package com.aliakbarmostafaei.umbrella.core.data.base
 
 sealed class WindDirection {
 

@@ -15,10 +15,12 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.aliakbarmostafaei.umbrella.core.local.daos
+package com.aliakbarmostafaei.umbrella.core.data.daos
 
 import androidx.room.*
-import com.aliakbarmostafaei.umbrella.core.local.models.CurrentWeatherEntity
+import com.aliakbarmostafaei.umbrella.core.data.models.CurrentConditionsEntity
+import io.reactivex.rxjava3.core.Completable
+import io.reactivex.rxjava3.core.Single
 
 /*
 Data access object for current weather entities in the database
@@ -27,20 +29,20 @@ Data access object for current weather entities in the database
 interface CurrentWeatherDao {
 
     @Query("SELECT * FROM current_weather_table")
-    fun getAll(): List<CurrentWeatherEntity>
+    fun getAll(): Single<List<CurrentConditionsEntity>>
 
     @Query("SELECT * FROM current_weather_table WHERE locationId LIKE :id LIMIT 1")
-    fun getWeatherByCityId(id: Long): CurrentWeatherEntity
+    fun getWeatherByCityId(id: Long): Single<CurrentConditionsEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertWeatherEntity(vararg currentWeatherEntities: CurrentWeatherEntity)
+    fun insertWeatherEntity(vararg currentConditionsEntities: CurrentConditionsEntity): Completable
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
-    fun updateWeatherEntity(vararg currentWeatherEntities: CurrentWeatherEntity)
+    fun updateWeatherEntity(vararg currentConditionsEntities: CurrentConditionsEntity): Completable
 
     @Delete
-    fun deleteWeatherEntity(vararg currentWeatherEntities: CurrentWeatherEntity)
+    fun deleteWeatherEntity(vararg currentConditionsEntities: CurrentConditionsEntity): Completable
 
     @Query("DELETE FROM current_weather_table")
-    fun clearTable()
+    fun clearTable(): Completable
 }

@@ -15,25 +15,22 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.aliakbarmostafaei.umbrella.core.local.models
+package com.aliakbarmostafaei.umbrella.core.data.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.aliakbarmostafaei.umbrella.core.base.WeatherCondition
-import com.aliakbarmostafaei.umbrella.core.base.WindDirection
+import com.aliakbarmostafaei.umbrella.core.data.base.WindDirection
 
 /*
 Entity model representing current weather data for local storage
  */
 @Entity(tableName = "current_weather_table")
-data class CurrentWeatherEntity(
+data class CurrentConditionsEntity(
     // Set location ID as primary key since we will only keep the latest weather
     // information for one location at a time and overwrite the old one
     @PrimaryKey
     val locationId: Long,
-    val locationName: String,
-    val weatherCondition: WeatherCondition,
-    val weatherDescription: String,
+    val weatherCondition: String,
     val temperature: Double,
     val feelsLike: Double,
     val humidity: Double,

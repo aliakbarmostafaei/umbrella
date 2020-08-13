@@ -15,20 +15,20 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.aliakbarmostafaei.umbrella.core.local
+package com.aliakbarmostafaei.umbrella.core.data
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.aliakbarmostafaei.umbrella.core.local.daos.CurrentWeatherDao
-import com.aliakbarmostafaei.umbrella.core.local.daos.DailyForecastDao
-import com.aliakbarmostafaei.umbrella.core.local.daos.HourlyForecastDao
-import com.aliakbarmostafaei.umbrella.core.local.models.CurrentWeatherEntity
-import com.aliakbarmostafaei.umbrella.core.local.models.DailyForecastEntity
-import com.aliakbarmostafaei.umbrella.core.local.models.HourlyForecastEntity
+import com.aliakbarmostafaei.umbrella.core.data.daos.CurrentWeatherDao
+import com.aliakbarmostafaei.umbrella.core.data.daos.DailyForecastDao
+import com.aliakbarmostafaei.umbrella.core.data.daos.HourlyForecastDao
+import com.aliakbarmostafaei.umbrella.core.data.models.CurrentConditionsEntity
+import com.aliakbarmostafaei.umbrella.core.data.models.DailyForecastEntity
+import com.aliakbarmostafaei.umbrella.core.data.models.HourlyForecastEntity
 
 @Database(
-    entities = [CurrentWeatherEntity::class,
+    entities = [CurrentConditionsEntity::class,
         HourlyForecastEntity::class, DailyForecastEntity::class], version = 1
 )
 @TypeConverters(Converters::class)

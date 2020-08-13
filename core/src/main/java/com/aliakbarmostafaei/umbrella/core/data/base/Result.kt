@@ -15,21 +15,21 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.aliakbarmostafaei.umbrella.core.base
+package com.aliakbarmostafaei.umbrella.core.data.base
 
 /**
  * A generic class that holds a value with its loading status.
  * @param <T>
  */
-sealed class Result<out T : Any> {
+sealed class Result<T> {
 
-    data class Success<out T : Any>(val data: T) : Result<T>()
-    data class Error(val exception: Exception) : Result<Nothing>()
+    data class Success<T>(val data: T) : Result<T>()
+    data class Error<T>(val errorEntity: ErrorEntity) : Result<T>()
 
     override fun toString(): String {
         return when (this) {
             is Success<*> -> "Success[data=$data]"
-            is Error -> "Error[exception=$exception]"
+            is Error -> "Error[exception=$errorEntity]"
         }
     }
 }

@@ -15,56 +15,12 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.aliakbarmostafaei.umbrella.core.local
+package com.aliakbarmostafaei.umbrella.core.data
 
 import androidx.room.TypeConverter
-import com.aliakbarmostafaei.umbrella.core.base.WeatherCondition
-import com.aliakbarmostafaei.umbrella.core.base.WindDirection
+import com.aliakbarmostafaei.umbrella.core.data.base.WindDirection
 
 class Converters {
-
-    /*
-    Type converters for WeatherCondition
-     */
-    @TypeConverter
-    fun weatherConditionToString(weatherCondition: WeatherCondition): String =
-        when (weatherCondition) {
-            WeatherCondition.Clear -> "Clear"
-            WeatherCondition.Clouds -> "Clouds"
-            WeatherCondition.Rain -> "Rain"
-            WeatherCondition.Drizzle -> "Drizzle"
-            WeatherCondition.Thunderstorm -> "Thunderstorm"
-            WeatherCondition.Snow -> "Snow"
-            WeatherCondition.Mist -> "Mist"
-            WeatherCondition.Haze -> "Haze"
-            WeatherCondition.Fog -> "Fog"
-            WeatherCondition.Sand -> "Fog"
-            WeatherCondition.Dust -> "Dust"
-            WeatherCondition.Tornado -> "Tornado"
-            WeatherCondition.Ash -> "Ash"
-            WeatherCondition.Squall -> "Squall"
-            WeatherCondition.Unknown -> "Unknown"
-        }
-
-    @TypeConverter
-    fun stringToWeatherCondition(string: String): WeatherCondition =
-        when (string) {
-            "Clear" -> WeatherCondition.Clear
-            "Clouds" -> WeatherCondition.Clouds
-            "Rain" -> WeatherCondition.Rain
-            "Drizzle" -> WeatherCondition.Drizzle
-            "Thunderstorm" -> WeatherCondition.Thunderstorm
-            "Snow" -> WeatherCondition.Snow
-            "Mist" -> WeatherCondition.Mist
-            "Haze" -> WeatherCondition.Haze
-            "Fog" -> WeatherCondition.Fog
-            "Sand" -> WeatherCondition.Sand
-            "Dust" -> WeatherCondition.Dust
-            "Tornado" -> WeatherCondition.Tornado
-            "Ash" -> WeatherCondition.Ash
-            "Squall" -> WeatherCondition.Squall
-            else -> WeatherCondition.Unknown
-        }
 
     /*
     Type converters for WindDirection

@@ -15,37 +15,37 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.aliakbarmostafaei.umbrella.core.local.daos
+package com.aliakbarmostafaei.umbrella.core.data.daos
 
 import androidx.room.*
-import com.aliakbarmostafaei.umbrella.core.local.models.HourlyForecastEntity
+import com.aliakbarmostafaei.umbrella.core.data.models.DailyForecastEntity
 
 /*
-Data access object for hourly forecast weather entities in the database
+Data access object for daily forecast weather entities in the database
  */
 @Dao
-interface HourlyForecastDao {
+interface DailyForecastDao {
 
-    @Query("SELECT * FROM hourly_forecast_table WHERE locationId LIKE :id LIMIT 1")
-    fun getHourlyForecastByCityId(id: Long): List<HourlyForecastEntity>
+    @Query("SELECT * FROM daily_forecast_table WHERE locationId LIKE :id LIMIT 1")
+    fun getDailyForecastByCityId(id: Long): List<DailyForecastEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(vararg forecastEntities: HourlyForecastEntity)
+    fun insert(vararg forecastEntities: DailyForecastEntity)
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
-    fun update(vararg forecastEntities: HourlyForecastEntity)
+    fun update(vararg forecastEntities: DailyForecastEntity)
 
     @Query("DELETE FROM hourly_forecast_table")
     fun clearTable()
 
     @Transaction
-    fun insertEntities(vararg forecastEntities: HourlyForecastEntity) {
+    fun insertEntities(vararg forecastEntities: DailyForecastEntity) {
         clearTable()
         insert(*forecastEntities)
     }
 
     @Transaction
-    fun updateEntities(vararg forecastEntities: HourlyForecastEntity) {
+    fun updateEntities(vararg forecastEntities: DailyForecastEntity) {
         clearTable()
         update(*forecastEntities)
     }
