@@ -32,6 +32,15 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments += [
+                        "room.schemaLocation"  : "$projectDir/schemas".toString(),
+                        "room.incremental"     : "true",
+                        "room.expandProjection": "true"]
+            }
+        }
     }
 
     buildTypes {
@@ -65,6 +74,7 @@ dependencies {
     implementation androidxLibraries.annotations
     implementation androidxLibraries.coreKtx
     implementation androidxLibraries.room
+    implementation androidxLibraries.roomRxJava3Adapter
     implementation networkLibraries.okhttp
     implementation networkLibraries.okhttpLogger
     implementation networkLibraries.retrofit
