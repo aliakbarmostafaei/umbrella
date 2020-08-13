@@ -20,11 +20,11 @@ package com.aliakbarmostafaei.umbrella.core.di.module
 import android.content.Context
 import androidx.room.Room
 import com.aliakbarmostafaei.umbrella.core.BuildConfig
+import com.aliakbarmostafaei.umbrella.core.data.UmbrellaDatabase
+import com.aliakbarmostafaei.umbrella.core.data.daos.CurrentWeatherDao
+import com.aliakbarmostafaei.umbrella.core.data.daos.DailyForecastDao
+import com.aliakbarmostafaei.umbrella.core.data.daos.HourlyForecastDao
 import com.aliakbarmostafaei.umbrella.core.di.scope.AppScope
-import com.aliakbarmostafaei.umbrella.core.local.UmbrellaDatabase
-import com.aliakbarmostafaei.umbrella.core.local.daos.CurrentWeatherDao
-import com.aliakbarmostafaei.umbrella.core.local.daos.DailyForecastDao
-import com.aliakbarmostafaei.umbrella.core.local.daos.HourlyForecastDao
 import dagger.Module
 import dagger.Provides
 import io.reactivex.rxjava3.schedulers.Schedulers
