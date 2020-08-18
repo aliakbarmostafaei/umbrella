@@ -69,7 +69,6 @@ dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
 
     // essential dependencies declared as 'api' for consumer projects to depend on
-    api essentialLibraries.kotlin
     api essentialLibraries.dagger
     implementation androidxLibraries.annotations
     implementation androidxLibraries.coreKtx
