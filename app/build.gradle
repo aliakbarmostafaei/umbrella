@@ -78,10 +78,30 @@ dependencies {
     implementation androidxLibraries.coreKtx
     implementation androidxLibraries.appCompat
     implementation androidxLibraries.constraintLayout
+    implementation androidxLibraries.fragmentKtx
+    api androidxLibraries.navigationFragment
+    api androidxLibraries.navigationUi
+    api androidxLibraries.navigationDynamicModules
 
 
     testImplementation testLibraries.junit
     androidTestImplementation testLibraries.junitExt
     androidTestImplementation testLibraries.espresso
 
+}
+
+// Resolve all Kotlin artifact dependencies to the latest version of Kotlin
+configurations.all {
+    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        def requested = details.requested
+        if (requested.group == 'org.jetbrains.kotlin' && requested.name == 'kotlin-reflect') {
+            details.useVersion kotlin_version
+        }
+        if (requested.group == 'org.jetbrains.kotlin' && requested.name == 'kotlin-stdlib') {
+            details.useVersion kotlin_version
+        }
+        if (requested.group == 'org.jetbrains.kotlin' && requested.name == 'kotlin-stdlib-jdk8') {
+            details.useVersion kotlin_version
+        }
+    }
 }
