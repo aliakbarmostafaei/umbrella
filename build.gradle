@@ -28,8 +28,8 @@ buildscript {
         ]
         versions = [
                 // SDK libraries
-                compileSdk      : 29,
-                targetSdk       : 29,
+                compileSdk      : 30,
+                targetSdk       : 30,
                 minSdk          : 21,
                 sdkBuildTools   : "30.0.2",
                 // dependency injection
