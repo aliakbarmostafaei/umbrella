@@ -1,5 +1,5 @@
 /*
- *     Copyright (C) 2020  Ali Akbar Mostafaei
+ *     Copyright (C) 2021  Ali Akbar Mostafaei
  *
  *     This program is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU Affero General Public License as
@@ -21,10 +21,10 @@ package com.aliakbarmostafaei.umbrella.core.data.base
  * A generic class that holds a value with its loading status.
  * @param <T>
  */
-sealed class Result<T> {
+sealed class ResultEntity<T> {
 
-    data class Success<T>(val data: T) : Result<T>()
-    data class Error<T>(val errorEntity: ErrorEntity) : Result<T>()
+    data class Success<T>(val data: T) : ResultEntity<T>()
+    data class Error<T>(val errorEntity: ErrorEntity) : ResultEntity<T>()
 
     override fun toString(): String {
         return when (this) {

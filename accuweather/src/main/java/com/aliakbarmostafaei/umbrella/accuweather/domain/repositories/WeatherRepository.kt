@@ -1,5 +1,5 @@
 /*
- *     Copyright (C) 2020  Ali Akbar Mostafaei
+ *     Copyright (C) 2021  Ali Akbar Mostafaei
  *
  *     This program is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU Affero General Public License as
@@ -17,7 +17,7 @@
 
 package com.aliakbarmostafaei.umbrella.accuweather.domain.repositories
 
-import com.aliakbarmostafaei.umbrella.core.base.Result
+import com.aliakbarmostafaei.umbrella.core.data.base.ResultEntity
 import com.aliakbarmostafaei.umbrella.core.models.CurrentWeather
 import com.aliakbarmostafaei.umbrella.core.models.DailyForecast
 import com.aliakbarmostafaei.umbrella.core.models.HourlyForecast
@@ -32,7 +32,7 @@ interface WeatherRepository {
      * @param locationId location's id previously retrieved
      * @param language the language to request the data in (default en-us)
      */
-    fun getCurrentConditions(locationId: String, language: String): Result<CurrentWeather>
+    fun getCurrentConditions(locationId: String, language: String): ResultEntity<CurrentWeather>
 
 
     /**
@@ -44,8 +44,8 @@ interface WeatherRepository {
     fun getDailyForecast(
         locationId: String,
         language: String,
-        isMetric: Boolean
-    ): Result<List<DailyForecast>>
+        isMetric: Boolean,
+    ): ResultEntity<List<DailyForecast>>
 
     /**
      * Method to get the hourly weather forecast data from data sources(remote/local)
@@ -56,6 +56,6 @@ interface WeatherRepository {
     fun getHourlyForecast(
         locationId: String,
         language: String,
-        isMetric: Boolean
-    ): Result<List<HourlyForecast>>
+        isMetric: Boolean,
+    ): ResultEntity<List<HourlyForecast>>
 }
